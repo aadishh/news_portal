@@ -10,7 +10,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
     <script src="../static//js/login.js"></script>
-    <title>News Portal</title>
+    <title>Login MEGANEWS</title>
   </head>
   <body>
     <!-- Animated Wave Background  -->
@@ -18,11 +18,12 @@
       <div class="wave"></div>
       <div class="wave"></div>
     </div>
-    <!-- Log In Form Section -->
+    <!-- Log In Form  -->
     <section>
       <div class="container" id="container">
         <div class="form-container sign-up-container">
-          <form action="#">
+          <form action="#" method="post">
+            {% csrf_token %}
             <h1>Sign Up</h1>
             <div class="social-container">
               <a
@@ -52,7 +53,8 @@
           </form>
         </div>
         <div class="form-container sign-in-container">
-          <form action="#">
+          <form action="/signin" method="post">
+            {% csrf_token %}
             <h1>Sign in</h1>
             <div class="social-container">
               <a
@@ -64,16 +66,16 @@
               <a href="https://www.facebook.com/" target="_blank" class="social"
                 ><i class="fa fa-facebook"></i
               ></a>
-              <a href="https://twitter.com/" target="_blank" class="social"
+              <a href="https://twitter.com/login?lang=en" target="_blank" class="social"
                 ><i class="fa fa-twitter"></i
               ></a>
             </div>
             <span> Or sign in using E-Mail Address</span>
             <label>
-              <input type="email" placeholder="Email" />
+              <input type="text" placeholder="username" name = "username"/>
             </label>
             <label>
-              <input type="password" placeholder="Password" />
+              <input type="password" placeholder="Password" name = "pass"/>
             </label>
             <a href="#">Forgot your password?</a>
             <button>Sign In</button>
@@ -81,18 +83,12 @@
         </div>
         <div class="overlay-container">
           <div class="overlay">
-            <div class="overlay-panel overlay-left">
-              <h1>Log in</h1>
-              <p>Sign in here if you already have an account</p>
-              <button class="ghost mt-5" id="signIn">Sign In</button>
-            </div>
             <div class="overlay-panel overlay-right">
               <h1>Create, Account!</h1>
               <p>Sign up if you still don't have an account ...</p>
-              <!-- <button class="ghost" id="signUp" src>Sign Up</button> -->
-              <a href="{% url 'signup' %}" class="ghost">Sign Up</a>
+              <button><a href="{% url 'signup' %}" class="ghost">Sign Up</a></button>
             </div>
-          </div>
+          </div>sss
         </div>
       </div>
     </section>

@@ -1,12 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    this is my signup page
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../static/css/signup.css" />
+    <title>Sign-up MEGANEWS</title>
+  </head>
+  <body>
+    <!-- Animated Wave Background  -->
+    <div class="ocean">
+      <div class="wave"></div>
+      <div class="wave"></div>
+    </div>
+    <!-- Log In Form  -->
+    <section>
+      <div class="container" id="container">
+        <div class="form-container sign-in-container">
+          <form action="#" method="post">
+            {% csrf_token %}
+            <h1 style="color: royalblue;">Sign Up form</h1>
+            <div >
+              <label>
+                <input type="email" placeholder="Email" name = 'email'/>
+              </label>
+              <label>
+                <input type="text" placeholder="username" name = 'username'/>
+              </label>
+              <label>
+                <input type="text" name="fname" placeholder="First Name" />
+              </label>
+              <label>
+                <input type="text" name="lname" placeholder="Last name " />
+              </label>
+              <label>
+                <input type="password" placeholder="Password" name = 'pass1'/>
+              </label>
+              <label>
+                <input type="password" placeholder="Re-enter Password" name = 'pass2'/>
+              </label>
+            </div>
+            <br>
+            <button><a href="{% url 'login' %}">Sign Up</a></button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </body>
 </html>
