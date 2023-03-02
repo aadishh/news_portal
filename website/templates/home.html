@@ -15,15 +15,18 @@
     
     <!-- navbar -->
     <nav id="nav">
-        <ul>
-        <li><a href="#section1" >Catagory</a></li>
-        <li><a href="#section1" >Blogs</a></li>
-        <li><a href="#section1" >Article</a></li>
-        <li><a href="#section1" >Contact</a></li>
+      <ul>
+        <li><a href = "{% url 'catagory' %}">Catagory</a></li>
+        <li><a href = "{% url 'blog' %}">Blogs</a></li>
+        <li><a href = "{% url 'article' %}">Article</a></li>
+        <li><a href = "{% url 'contact' %}">Contact</a></li>
         <li><a href="{% url 'login' %}" >Login</li>
       </ul>
     </nav>
 
     <!-- News scrapping -->
+    
+
+    
   </body>
 </html>
