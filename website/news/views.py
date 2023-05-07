@@ -7,7 +7,7 @@ from django.contrib.auth import authenticate , login as auth_login
 
 # Create your views here.
 def index(request):
-    return render(request, 'home.html')
+    return render(request, 'home.html',{'toi_news':toi_news})
 
 
 def login(request):
@@ -67,3 +67,34 @@ def article(request):
 
 def blog(request):
     return render(request, 'blog.html')
+
+
+def checkbox(request):
+    check = []
+    if request.method == 'POST':
+        check = request.POST.get('checksbox') 
+        return render(request,'blog.html')
+
+
+
+
+# web scrapping
+
+
+from django.shortcuts import render
+import requests
+from bs4 import BeautifulSoup
+
+# GEtting news from Times of India
+
+toi_r = requests.get("https://timesofindia.indiatimes.com/briefs")
+toi_soup = BeautifulSoup(toi_r.content, 'html.parser')
+
+toi_headings = toi_soup.find_all('h2')
+
+toi_headings = toi_headings[0:-13] # removing footers
+
+toi_news = []
+
+for th in toi_headings:
+    toi_news.append(th.text)
